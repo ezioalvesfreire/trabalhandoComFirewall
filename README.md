@@ -14,6 +14,7 @@
 ![](imagens/importar-distro3.jpeg)
 
 <p>Agora faça o clone</p>
+<p>Obs: o clone servirá para tarefas posteriores</p>
 
 ![](imagens/clonando.jpeg)
 
@@ -72,6 +73,8 @@
 
 <p>Portanto para que possa mudar as regras da política padrão use o comando iptables -P INPUT ACCEPT (aceitando input)</p>
 
+<p>em seguida liste os dados da tabela com o comando:  iptables -L</p>
+
 ![](imagens/input-accept.png)
 
 <p>Note na imagem a seguir que agora tenho acesso ssh aluno@... liberado</p>
@@ -99,7 +102,8 @@
 
 ![](imagens/ip-minha-maquina.png)
 
-<p>O acesso será permitido conforme as especificações da seta 03 da imagem abaixo</p>
+<p>O acesso será permitido conforme as especificações da seta 03 da imagem abaixo, e para que isso aconteça utilizarei o comando iptables -A INPUT -p tcp -s 192.168.15.4 -i enp03 --drop 22 -j ACCEPT </p>
+<p>iptables -L para listar</p>
 
 ![](imagens/permita-o-ip.png)
 
@@ -114,6 +118,25 @@
 
 <p>Note que reportará time out</p>
 
-![](imagens/time-out.png)
+<!--[](imagens/time-out.png)-->
 
+![](imagens/correcao-acesso-bloqueado.png)
+
+<p>Agora vamos subir uma nova interface, a interface enp0s8 </p>
+
+<p>Para isso utilizaremos o editor de texto Unix VI, que deverá ser aberto no caminho interfaces: vi /etc/network/interfaces</p>
+
+<p>Informe os dados da nova interface, conforme destacado</p>
+
+![](imagens/nova-interface2.png)
+
+<p>após isso tecle: "esc" depois ":" depois "wq", para salvar e sair do editor </p>
+<p>Agora é só "rebootar" a maquina e verificar se a nova interface foi criada</p>
+
+![](imagens/reboot.png)
+
+<p>Agora consulte as interfaces existentes através do comando ip -4 a</p>
+<p>note que agora temos a interface enp0s8</p>
+
+![](imagens/interface-enp0s8.png)
 
