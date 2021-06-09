@@ -168,5 +168,12 @@
 
 ![](imagens/liberando-acesso.png)
 
+<p>Veja agora a listagem da tabela</p>
+<p>Note que agora mesmo que a politica padrão da cadeia FORWARD é "Dropada", bloqueada, ainda assim permite que o IP informado (destacado na imagem) tenha acesso liberado</p>
+
+## Isso é FIREWALL na prática
+
+![](imagens/liberado-acesso2.png)
+
 
 
