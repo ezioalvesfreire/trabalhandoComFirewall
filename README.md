@@ -140,3 +140,18 @@
 
 ![](imagens/interface-enp0s8.png)
 
+<p>Com privilégio su - adicionarei um novo IP (192.168.0.16/24)</p>
+
+<!--![](imagens/note-o-ip.png) -->
+
+![](imagens/novo-ip2.png)
+
+<p>Poderia apenas ter modificado o IP 10.0.1.10/24, portanto farei a exclusão do mesmo utilizando o comando ip addr del 10.0.1.10/24 dev enp0s8</p>
+
+![](imagens/exclui-ip.png)
+
+
+<p>Comando para criar regra para acessar a máquina virtual remotamente</p>
+
+
+
