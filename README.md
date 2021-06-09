@@ -124,7 +124,7 @@
 
 <p>Agora vamos subir uma nova interface, a interface enp0s8 </p>
 
-<p>Para isso utilizaremos o editor de texto Unix VI, que deverá ser aberto no caminho interfaces: vi /etc/network/interfaces</p>
+<p>Para isso utilizaremos o editor de texto Unix VI, que deverá ser aberto no caminho para interfaces: vi /etc/network/interfaces</p>
 
 <p>Informe os dados da nova interface, conforme destacado</p>
 
@@ -148,10 +148,25 @@
 
 <p>Poderia apenas ter modificado o IP 10.0.1.10/24, portanto farei a exclusão do mesmo utilizando o comando ip addr del 10.0.1.10/24 dev enp0s8</p>
 
+<p>Note que na nova consulta o IP 10.0.1.10/24 já não existe</p>
+
 ![](imagens/exclui-ip.png)
 
 
-<p>Comando para criar regra para acessar a máquina virtual remotamente</p>
+<p>Agora vou configurar para que qualquer máquina ou dispositivo que esteja na minha rede local possa acessar o ssh da máquina virtual</p>
+
+<p>Obs: apenas configurar por enquanto, sendo que o acesso só será possível após configuar outros parametros que farei mais a diante (NAT e tals) </p>
+
+<!-- <p>A rede 192.168.0.0/24 acesse a porta 22 da rede 10.0.1.0/24</p> -->
+<p>Configurar para que a rede 192.168.15.4/24 acesse porta 22 da rede 192.168.0.16/24</p>
+<p>Para fazer sentido vou "dropar" a cadeia FORWARD com o comando iptables -P FORWARD DROP</p>
+
+![](imagens/drop-p-fazer-sentido4.png)
+
+
+<p>Agora sim vou liberar acesso para qualquer dispositivo da rede local, vou usar o comando iptables -A FORWARD -p tcp -s 192.168.0.0/24 -d 192.168.0.16/24 --dport 22 -j ACCEPT</p>
+
+![](imagens/liberando-acesso.png)
 
 
 
