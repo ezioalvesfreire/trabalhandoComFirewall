@@ -207,6 +207,14 @@ saintes na interface enp0s8, pacotes com destino à porta 443/tcp:</p>
 
 ![](imagens/port-443.png)
 
+<p>Listando regras por especificação</p>
+
+<p>iptables -S</p>
+
+![](imagens/listagem.png)
+
+
+
 
 
 
