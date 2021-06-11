@@ -90,7 +90,7 @@
 
 ![](imagens/input-drop.png)
 
-<p>Agora que a conexão esta "Dropada" conforme aponta a seta 02, vou tentar acesso! através do Powershell</p
+<p>Agora que a conexão esta "Dropada" conforme aponta a seta 02 da imagem acima, vou tentar acesso através do Powershell</p
 
 
 ![](imagens/tentativa-acesso-ssh.png)
@@ -171,9 +171,48 @@
 <p>Veja agora a listagem da tabela</p>
 <p>Note que agora mesmo que a politica padrão da cadeia FORWARD é "Dropada", bloqueada, ainda assim permite que o IP informado (destacado na imagem) tenha acesso liberado</p>
 
-## Isso é FIREWALL na prática
 
 ![](imagens/liberado-acesso2.png)
+
+<p>Permita todos os pacotes saintes:</p>
+
+![](imagens/saida-de-pacotes.png)
+
+<p>Permita todo o tráfego para a interface lo:</p>
+
+<p>iptables -A INPUT -i lo -j ACCEPT </p>
+
+![](imagens/trafego-lo-input.png)
+
+<p>iptables -A OUTPUT -i lo -j ACCEPT </p>
+
+![](imagens/trafego-lo-output.png)
+
+<p>Libere pacotes entrantes para a porta tcp 80:</p>
+
+![](imagens/accept-inpu-port-80.png)
+
+<p>Libere, para pacotes oriundos da rede 192.168.0.0/24, entrantes na interface enp0s3, a conexão ao SSH (porta 22/tcp):</p>
+
+![](imagens/accept-input-port-22.png)
+
+
+<p>Libere, para roteamento, com origem na rede 192.168.15.3/24 e destino na rede 192.168.0.16/24, entrantes na interface enp0s3 
+e saintes na interface enp0s8, pacotes com destino à porta 80/tcp:</p>
+
+![](imagens/accept-input-port-80.png)
+
+<p>Libere, para roteamento, com origem na rede 192.168.15.3/24 e destino no IP 192.168.0.16/24, entrantes na interface enp0s3 e 
+saintes na interface enp0s8, pacotes com destino à porta 443/tcp:</p>
+
+![](imagens/port-443.png)
+
+
+
+
+
+
+
 
 
 
